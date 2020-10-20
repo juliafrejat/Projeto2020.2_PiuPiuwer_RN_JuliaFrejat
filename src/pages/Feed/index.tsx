@@ -3,7 +3,9 @@ import React from 'react';
 import { View } from 'react-native';
 
 function Feed() {
-    return <View />
+    return (
+        
+    )
 }
 
 export default Feed;
