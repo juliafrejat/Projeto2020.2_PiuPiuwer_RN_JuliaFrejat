@@ -11,8 +11,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
-    const isGreen = props.isGreen;
-
     return (
         <HeaderComponent isGreen={props.isGreen}>
             <TitleComponent>
@@ -20,7 +18,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                 <TitleTextComponent>PiuPiuwer</TitleTextComponent>
             </TitleComponent>
         {props.children}
-            <SearchBar />
+            <SearchBar isGreen={props.isGreen} />
         </HeaderComponent>
     )
 }

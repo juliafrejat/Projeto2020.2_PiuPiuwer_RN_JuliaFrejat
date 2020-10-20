@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 
 interface SearchComponentProps {
     isOpen?: boolean;
+    isGreen: boolean;
 }
 
 export const SearchComponent = styled.View<SearchComponentProps>`
@@ -10,7 +11,7 @@ export const SearchComponent = styled.View<SearchComponentProps>`
     height: 40px;
     flex-direction: row;
     align-items: center;
-    background-color: #D8F3DC;
+    background-color: ${props => props.isGreen ? '#D8F3DC' : '#E9ECEF'};
     opacity: 0.7;
     justify-content: flex-end;
     border-radius: 20px;
