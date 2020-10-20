@@ -6,27 +6,27 @@ interface SearchComponentProps {
 }
 
 export const SearchComponent = styled.View<SearchComponentProps>`
-    width: ${props => props.isOpen ? '200px' : '50px'};
-    height: 50px;
+    width: ${props => props.isOpen ? '160px' : '40px'};
+    height: 40px;
     flex-direction: row;
     align-items: center;
-    background-color: #FFFFFF;
+    background-color: #D8F3DC;
+    opacity: 0.7;
     justify-content: flex-end;
-    border-radius: 25px;
+    border-radius: 20px;
 `;
 
 export const SearchButtonComponent = styled.TouchableOpacity`
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
-    background-color: #E9ECEF;
-    border-radius: 25px;
+    border-radius: 20px;
 `;
 
 export const InputComponent = styled(TextInput)`
     flex: 1;
     background-color: transparent;
-    margin-left: 25px;
+    margin-left: 20px;
     margin-right: 10px;
 `;

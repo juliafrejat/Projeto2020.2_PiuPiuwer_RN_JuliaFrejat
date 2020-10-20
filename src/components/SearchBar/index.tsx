@@ -22,7 +22,7 @@ const SearchBar: React.FC = () => {
         <SearchComponent isOpen={isOpen}>
             <InputComponent />
             <SearchButtonComponent onPress={handleOpenSearchBar}>
-                <Feather name="search" size={25} color="#343A40" />
+                <Feather name="search" size={20} color="#343A40" />
             </SearchButtonComponent>
         </SearchComponent>
             

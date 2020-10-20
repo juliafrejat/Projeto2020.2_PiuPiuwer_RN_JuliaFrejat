@@ -1,4 +1,4 @@
-/* import styled from 'styled-components/native';
+import styled from 'styled-components/native';
 
 interface HeaderProps {
     isGreen: boolean;
@@ -6,36 +6,25 @@ interface HeaderProps {
 
 export const HeaderComponent = styled.View<HeaderProps>`
     width: 100%;
-    background: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
+    background-color: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
     border: ${props => props.isGreen ? 'none' : '1px solid #CED4DA'};
-    padding: 1%;
+    padding: 50px 20px 15px 20px;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+`;
 
+export const TitleComponent = styled.View`
+    flex-direction: row;
+`;
 
-    Image {
-        height: 20px;
-    }
+export const TitleTextComponent = styled.Text<HeaderProps>`
+    font-size: 20px;
+    font-weight: bold;
+    color: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
+    font-family: 'Courier New';
+`;
 
-    Text {
-        font-size: 18;
-    }
-
-    .search{
-        background-color: #ffffff;
-        padding: 5px 10px;
-        border-radius: 25px;
-    }
-    
-    TextInput {
-        color: #343A40;
-        line-height: 20px;
-        margin: 2px 10px;
-    }
-    
-    .search button{
-        border: none;
-        background: none;
-        outline: none;
-    }
-`; */
+export const TitleImageComponent = styled.Image`
+    height: 20px;
+`;
