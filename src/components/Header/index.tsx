@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { Image, Text, TextInput, View } from 'react-native';
 
 import { HeaderComponent } from './styles';
@@ -23,9 +23,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                     <Text>PiuPiuwer</Text>
                 </View>
 
-                <View>
-                    <SearchBar />
-                </View>
+                <SearchBar />
             </HeaderComponent>
         )
     } else {
@@ -45,4 +43,4 @@ const Header: React.FC<HeaderProps> = (props) => {
     
 }
 
-export default Header;
+export default Header; */

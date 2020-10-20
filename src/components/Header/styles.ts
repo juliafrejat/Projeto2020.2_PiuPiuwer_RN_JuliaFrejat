@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+/* import styled from 'styled-components/native';
 
 interface HeaderProps {
     isGreen: boolean;
@@ -7,8 +7,8 @@ interface HeaderProps {
 export const HeaderComponent = styled.View<HeaderProps>`
     width: 100%;
     background: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
-    border-bottom: ${props => props.isGreen ? 'none' : '1px solid #CED4DA'};
-    padding: 1;
+    border: ${props => props.isGreen ? 'none' : '1px solid #CED4DA'};
+    padding: 1%;
     align-items: center;
     justify-content: space-between;
 
@@ -38,4 +38,4 @@ export const HeaderComponent = styled.View<HeaderProps>`
         background: none;
         outline: none;
     }
-`;
+`; */

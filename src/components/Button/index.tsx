@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 
 import { ButtonComponent } from './styles';
 
@@ -18,4 +18,4 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
 }
 
-export default Button;
+export default Button; */

@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+/* import styled from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 interface ButtonProps {
@@ -21,4 +21,4 @@ export const ButtonComponent = styled(RectButton)<ButtonProps>`
         font-size: 15;
         font-weight: bold;
     }
-`;
+`; */
