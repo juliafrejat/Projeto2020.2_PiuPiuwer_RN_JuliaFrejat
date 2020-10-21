@@ -83,7 +83,7 @@ function NewPiuPage() {
                     multiline={true} 
                     numberOfLines={10}
                     placeholder="Digite seu novo piu."
-                    onChangeText={(text: string) => handleTextPiuChange(text)} 
+                    onChangeText={(text: string) => {handleTextPiuChange(text)}} 
                 />
             </PiuContainerComponent>
 
