@@ -10,7 +10,7 @@ export const ButtonComponent = styled(RectButton)<ButtonProps>`
     align-items: center;
     width: 100px;
     padding: 10px 15px;
-    margin: 10px;
+    margin: 10px 0px;
     text-align: center;
     border-radius: 10px;
     border: ${props => props.isGreen ? 'none' : '2px solid #52B788'};

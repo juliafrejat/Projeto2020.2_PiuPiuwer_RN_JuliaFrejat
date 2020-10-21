@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { View } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+
+import { usePius } from '../../hooks/usePius';
+import { useAuth } from '../../hooks/useAuth';
 
 import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Button from '../../components/Button';
 import { 
-    ButtonContainerComponent,
     ButtonsComponent, 
     ButtonTextComponent, 
     ContainerComponent, 
+    Counter, 
+    EmptyErrorMsg, 
     NewPiuComponent, 
+    PiuContainerComponent, 
     ProfileImageBoxComponent, 
-    TextareaComponent 
+    TextareaComponent, 
+    TooLongErrorMsg
 } from './styles';
 
 import { Feather } from '@expo/vector-icons';
@@ -28,6 +33,38 @@ function NewPiuPage() {
         navigate('Feed');
     }
 
+    const { sendPiu } = usePius();
+    const { loggedUserData } = useAuth();
+
+    const [textoDePiu, setTextoDePiu] = useState('');
+
+    const handleTextPiuChange = useCallback((e) => {
+        setTextoDePiu(e.target.value);
+    }, [setTextoDePiu]);
+
+    const handleSendPiu = useCallback(async () => {
+        if (textoDePiu.length > 0 && textoDePiu.length <= 140) {
+            sendPiu(loggedUserData.id, textoDePiu);
+            navigate('Feed');
+        } else {
+            setClick(true);
+        }
+    }, [sendPiu, loggedUserData, textoDePiu])
+
+    const [error, setError] = useState(false);
+
+    const [click, setClick] = useState(false);
+
+    useEffect(() => {
+        if (textoDePiu.length > 0 && textoDePiu.length <= 140) {
+            setError(false);
+            setClick(false);
+        } else {
+            setError(true);
+            setClick(false);
+        }
+    }, [textoDePiu.length])
+
     return (
         <Page color="#F8F9FA">
             <Header isGreen={true}>
@@ -37,18 +74,22 @@ function NewPiuPage() {
             </Header>
 
             <NewPiuComponent>
-            <ContainerComponent>
+            <PiuContainerComponent>
                 <ProfileImageBoxComponent>
                     {/* <ProfileImageComponent source={} /> */}
                 </ProfileImageBoxComponent>
                 <TextareaComponent
                     multiline={true} 
                     numberOfLines={10}
-                    placeholder="Digite seu novo piu." 
+                    placeholder="Digite seu novo piu."
+                    onChangeText={text => setTextoDePiu(text)} 
                 />
-            </ContainerComponent>
+            </PiuContainerComponent>
 
-            <ButtonContainerComponent>
+            <ContainerComponent>
+                <Counter limitReached={textoDePiu.length > 140}>{textoDePiu.length}/140</Counter>
+                <EmptyErrorMsg isEmpty={textoDePiu.length === 0} click={click}>O piu não pode estar vazio.</EmptyErrorMsg>
+                <TooLongErrorMsg limitReached={textoDePiu.length > 140} click={click}>O piu não pode ter mais de 140 caracteres.</TooLongErrorMsg>
                 <ButtonsComponent>
                     <Feather name='image' size={25} color='#6C757D' />
                     <Feather name='camera' size={25} color='#6C757D' />
@@ -56,12 +97,12 @@ function NewPiuPage() {
                     <Feather name='map-pin' size={25} color='#6C757D' />
                 </ButtonsComponent>
 
-                <Button isGreen={true}>
+                <Button isGreen={true} onPress={handleSendPiu}>
                     <ButtonTextComponent isGreen={true}>
                         PiuPiu
                     </ButtonTextComponent>
                 </Button>
-            </ButtonContainerComponent>
+            </ContainerComponent>
         </NewPiuComponent>
         </Page>
     )

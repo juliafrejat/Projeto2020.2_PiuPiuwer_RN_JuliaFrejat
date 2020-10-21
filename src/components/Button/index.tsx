@@ -1,10 +1,11 @@
 import React from 'react';
+import { BaseButtonProperties } from 'react-native-gesture-handler';
 
 import { ButtonComponent } from './styles';
 
 
 
-interface ButtonProps {
+interface ButtonProps extends BaseButtonProperties {
     isGreen: boolean;
 }
 
