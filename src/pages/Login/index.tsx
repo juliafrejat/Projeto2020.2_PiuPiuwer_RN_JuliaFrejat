@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import useLoading from '../../hooks/useLoading';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 import Button from '../../components/Button';
 import Header from '../../components/Header';

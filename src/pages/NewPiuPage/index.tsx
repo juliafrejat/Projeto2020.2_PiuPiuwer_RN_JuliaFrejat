@@ -4,8 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
-import { usePius } from '../../hooks/usePius';
-import { useAuth } from '../../hooks/useAuth';
+import usePius from '../../hooks/usePius';
+import useAuth from '../../hooks/useAuth';
 
 import Page from '../../components/Page';
 import Header from '../../components/Header';

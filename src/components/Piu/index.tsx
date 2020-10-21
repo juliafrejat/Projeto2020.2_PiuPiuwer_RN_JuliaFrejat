@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { PiuData, usePius } from '../../hooks/usePius';
-import { useAuth } from '../../hooks/useAuth';
+import usePius, { PiuData } from '../../hooks/usePius';
+import useAuth from '../../hooks/useAuth';
 
 import { 
     ContainerComponent, 

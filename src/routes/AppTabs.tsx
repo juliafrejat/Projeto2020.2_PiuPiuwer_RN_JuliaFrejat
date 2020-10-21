@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { useAuth } from '../hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 
 import { Feather } from '@expo/vector-icons';
 

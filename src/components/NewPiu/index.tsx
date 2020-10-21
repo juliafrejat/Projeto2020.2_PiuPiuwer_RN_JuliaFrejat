@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 
 import { 
     NewPiuComponent, 

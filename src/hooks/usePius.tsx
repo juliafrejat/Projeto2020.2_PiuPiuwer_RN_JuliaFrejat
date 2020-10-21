@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import api from '../services/api';
-import { useAuth, User } from './useAuth';
+import useAuth, { User } from './useAuth';
 
 export interface PiuData {
     usuario: User;
@@ -125,7 +125,9 @@ export const PiusProvider: React.FC = ({children}) => {
     )
 }
 
-export function usePius(): PiusContextData {
+function usePius(): PiusContextData {
     const context = useContext(PiusContext);
     return context;
 }
+
+export default usePius;

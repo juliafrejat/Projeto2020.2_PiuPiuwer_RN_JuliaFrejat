@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 
-import { usePius } from '../../hooks/usePius';
+import usePius from '../../hooks/usePius';
 import Piu from '../Piu';
 
 function PiusArea() {

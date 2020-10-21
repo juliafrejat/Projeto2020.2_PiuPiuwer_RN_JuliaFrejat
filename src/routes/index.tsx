@@ -3,7 +3,7 @@ import React from 'react';
 import AuthStack from './AuthStack';
 import AppTabs from './AppTabs';
 
-import { useAuth } from '../hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 
 const Routes: React.FC = () => {
     const { token } = useAuth();
