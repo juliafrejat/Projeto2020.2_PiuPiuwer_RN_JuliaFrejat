@@ -13,16 +13,11 @@ function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [x, setX] = useState('');
 
-    /* const handleLogIn = useCallback((e: any) => {
+    const handleLogIn = useCallback((e: any) => {
         //logIn({username, password});
         console.log('ok');
-    }, [username, password, logIn, setX]); */
-
-    const handleLogIn = () => {
-        console.log('ok');
-    }
+    }, [username, password, logIn]);
 
     return (
         <Page color="#FFFFFF">
@@ -35,7 +30,7 @@ function Login() {
             </Header>
 
             <Form>
-                <FormTitle>Entrar{x}</FormTitle>
+                <FormTitle>Entrar</FormTitle>
                 <InputComponent placeholder="Nome de usuário" onChangeText={(text: string) => {setUsername(text)}} />
                 <InputComponent placeholder="Senha" onChangeText={(text: string) => {setPassword(text)}} />
                 <ErrorText>{errorTxt}</ErrorText>
