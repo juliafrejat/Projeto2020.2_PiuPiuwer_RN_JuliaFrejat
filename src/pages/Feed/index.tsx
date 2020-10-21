@@ -8,6 +8,7 @@ import SearchBar from '../../components/SearchBar/index'
 import Page from '../../components/Page';
 import Header from '../../components/Header';
 import NewPiu from '../../components/NewPiu';
+import PiusArea from '../../components/PiusArea';
 import { ScrollArea } from './styles';
 
 function Feed() {
@@ -24,7 +25,9 @@ function Feed() {
                 <SearchBar isGreen={true} />
             </Header>
             <NewPiu onFocus={handleNavigateToNewPiuPage} />
-            <ScrollArea showsVerticalScrollIndicator={false} />
+            <ScrollArea showsVerticalScrollIndicator={false}>
+                <PiusArea />
+            </ScrollArea>
         </Page>
     )
 }

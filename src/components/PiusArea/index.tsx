@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 
 import { usePius } from '../../hooks/usePius';
 import Piu from '../Piu';
@@ -6,7 +6,7 @@ import Piu from '../Piu';
 function PiusArea() {
     const { pius, likedPiusIds, favoritedPiusIds, piusRequest } = usePius();
 
-    useEffect(() => {
+    useCallback(() => {
         piusRequest();
     }, [piusRequest]);
 
