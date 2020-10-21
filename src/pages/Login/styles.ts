@@ -14,16 +14,33 @@ export const InputComponent = styled.TextInput`
     border: 1px solid #E9ECEF;
     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
     min-width: 250px;
+    font-family: 'Courier New';
 `;
 
 export const Form = styled.View`
     justify-content: space-between;
     align-items: center;
+    margin-top: 150px;
 `;
 
 export const FormTitle = styled.Text`
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Courier New';
     font-weight: bold;
     color: #343A40;
+    margin-bottom: 20px;
+`;
+
+export const ClickableText = styled.Text`
+    font-size: 12px;
+    font-family: 'Courier New';
+    color: #40916C;
+    margin-top: 10px;
+`;
+
+export const ErrorText = styled.Text`
+    font-size: 12px;
+    font-family: 'Courier New';
+    font-weight: bold;
+    color: #FF7F7F;
 `;

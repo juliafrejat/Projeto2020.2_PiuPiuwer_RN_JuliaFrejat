@@ -34,6 +34,7 @@ export const ProfileImageComponent = styled.Image`
 
 export const TextareaComponent = styled.TextInput`
     background-color: #E9ECEF;
+    font-family: 'Courier New';
     width: 80%;
     height: 40px;
     border-radius: 15px;

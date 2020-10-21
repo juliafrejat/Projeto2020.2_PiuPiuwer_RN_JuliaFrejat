@@ -19,7 +19,7 @@ function Feed() {
     }
 
     return (
-        <Page color="#F8F9FA" alignment="flex-start">
+        <Page color="#F8F9FA">
             <Header isGreen={true}>
                 <SearchBar isGreen={true} />
             </Header>

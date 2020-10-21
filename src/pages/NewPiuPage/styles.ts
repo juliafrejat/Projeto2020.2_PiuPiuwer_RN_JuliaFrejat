@@ -34,6 +34,7 @@ export const ProfileImageComponent = styled.Image`
 
 export const TextareaComponent = styled.TextInput`
     background-color: #E9ECEF;
+    font-family: 'Courier New';
     width: 80%;
     height: 150px;
     border-radius: 15px;
@@ -71,6 +72,7 @@ interface CounterProps {
 
 export const Counter = styled.Text<CounterProps>`
     font-size: 12px;
+    font-family: 'Courier New';
     color: ${props => props.limitReached ? '#FF7F7F' : '#495057'};
     font-weight: ${props => props.limitReached ? 'bold' : 'normal'};
 `;
@@ -84,6 +86,7 @@ export const TooLongErrorMsg = styled.Text<TooLongErrorMsgProps>`
     color: #FF7F7F;
     font-size: 12px;
     font-weight: bold;
+    font-family: 'Courier New';
     display: ${props => (props.limitReached && props.click) ? 'inline' : 'none'};
 `;
 
@@ -96,5 +99,6 @@ export const EmptyErrorMsg = styled.Text<EmptyErrorMsgProps>`
     color: #FF7F7F;
     font-size: 12px;
     font-weight: bold;
+    font-family: 'Courier New';
     display: ${props => (props.isEmpty && props.click) ? 'inline' : 'none'};
 `;

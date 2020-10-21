@@ -5,12 +5,11 @@ import { PageComponent } from './styles';
 
 interface PageProps {
     color: string;
-    alignment: string;
 }
 
 const Page: React.FC<PageProps> = (props) => {
     return (
-        <PageComponent color={props.color} alignment={props.alignment}>
+        <PageComponent color={props.color}>
             {props.children}
         </PageComponent>
     )

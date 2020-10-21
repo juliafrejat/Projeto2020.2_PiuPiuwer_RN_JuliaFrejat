@@ -2,12 +2,11 @@ import styled from 'styled-components/native';
 
 interface PageProps {
     color: string;
-    alignment: string;
 }
 
 export const PageComponent = styled.View<PageProps>`
     align-items: center;
-    justify-content: ${props => props.alignment};
+    justify-content: flex-start;
     flex: 1;
     background-color: ${props => props.color};
 `;

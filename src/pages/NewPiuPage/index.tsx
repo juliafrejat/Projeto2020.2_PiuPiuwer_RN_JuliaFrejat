@@ -66,7 +66,7 @@ function NewPiuPage() {
     }, [textoDePiu.length])
 
     return (
-        <Page color="#F8F9FA" alignment="flex-start">
+        <Page color="#F8F9FA">
             <Header isGreen={true}>
                 <TouchableOpacity onPress={handleClosePage}>
                     <Feather name='x' color='#FFFFFF' size={25} />
@@ -82,7 +82,7 @@ function NewPiuPage() {
                     multiline={true} 
                     numberOfLines={10}
                     placeholder="Digite seu novo piu."
-                    onChangeText={text => setTextoDePiu(text)} 
+                    onChangeText={(text: string) => setTextoDePiu(text)} 
                 />
             </PiuContainerComponent>
 

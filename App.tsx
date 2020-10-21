@@ -7,7 +7,7 @@ import AuthStack from './src/routes/AuthStack';
 export default function App() {
   return (
     <>
-      <AuthStack />
+      <AppTabs />
       <StatusBar style="auto" />
     </>
   );

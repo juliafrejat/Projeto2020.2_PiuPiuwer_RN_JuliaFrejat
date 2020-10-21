@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
+
+import { useAuth } from '../../hooks/useAuth';
 
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Page from '../../components/Page';
-import { FormTitle, InputComponent } from './styles';
+import { ClickableText, ErrorText, FormTitle, InputComponent } from './styles';
 import { ButtonTextComponent, Form } from './styles';
 
 function Login() {
+    const { logIn, errorTxt } = useAuth();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [x, setX] = useState('');
+
+    /* const handleLogIn = useCallback((e: any) => {
+        //logIn({username, password});
+        console.log('ok');
+    }, [username, password, logIn, setX]); */
+
+    const handleLogIn = () => {
+        console.log('ok');
+    }
+
     return (
-        <Page color="#FFFFFF" alignment="center">
+        <Page color="#FFFFFF">
             <Header isGreen={false}>
                 <Button isGreen={true}>
                     <ButtonTextComponent>
@@ -18,14 +35,16 @@ function Login() {
             </Header>
 
             <Form>
-                <FormTitle>Entrar</FormTitle>
-                <InputComponent placeholder="Nome de usuário" />
-                <InputComponent placeholder="Senha" />
-                <Button isGreen={true}>
+                <FormTitle>Entrar{x}</FormTitle>
+                <InputComponent placeholder="Nome de usuário" onChangeText={(text: string) => {setUsername(text)}} />
+                <InputComponent placeholder="Senha" onChangeText={(text: string) => {setPassword(text)}} />
+                <ErrorText>{errorTxt}</ErrorText>
+                <Button isGreen={true} onPress={handleLogIn}>
                     <ButtonTextComponent>
                         Continuar
                     </ButtonTextComponent>
                 </Button>
+                <ClickableText>Esqueceu a senha?</ClickableText>
             </Form>
         </Page>
     )

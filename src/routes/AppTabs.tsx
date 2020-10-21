@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import { useAuth } from '../hooks/useAuth';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -9,6 +11,12 @@ import NewPiuStack from './NewPiuStack';
 const { Navigator, Screen } = createBottomTabNavigator();
 
 function AppTabs() {
+    const { logOut } = useAuth();
+    
+    const handleLogOut = useCallback(() => {
+        logOut();
+    },[logOut]);
+
     return (
         <NavigationContainer>
             <Navigator
@@ -99,6 +107,12 @@ function AppTabs() {
                             return (
                                 <Feather name="log-out" size={size} color='#FFFFFF' />
                             )
+                        },
+                    }}
+                    listeners={{
+                        tabPress: e => {
+                            e.preventDefault();
+                            handleLogOut();
                         }
                     }} 
                 />
