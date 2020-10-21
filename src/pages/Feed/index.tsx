@@ -2,13 +2,13 @@ import React from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { Keyboard, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Keyboard } from 'react-native';
 
 import SearchBar from '../../components/SearchBar/index'
 import Page from '../../components/Page';
 import Header from '../../components/Header';
 import NewPiu from '../../components/NewPiu';
+import { ScrollArea } from './styles';
 
 function Feed() {
     const { navigate } = useNavigation();
@@ -24,6 +24,7 @@ function Feed() {
                 <SearchBar isGreen={true} />
             </Header>
             <NewPiu onFocus={handleNavigateToNewPiuPage} />
+            <ScrollArea showsVerticalScrollIndicator={false} />
         </Page>
     )
 }

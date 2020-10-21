@@ -53,9 +53,11 @@ export const AuthProvider: React.FC = ({children}) => {
         try {
             const response = await api.post('/login/', {username, password});
             const { token, user } = response.data;
+            console.log(token)
             await AsyncStorage.multiSet([['@Project:token', token],['@Project:user', JSON.stringify(user)]]);
 
             if (!!token) {
+                console.log('no error');
                 const userResponse = await api.get('/usuarios/?search='+ username);
                 const user = userResponse.data[0];
                 await AsyncStorage.setItem('@Project:user', JSON.stringify(user));

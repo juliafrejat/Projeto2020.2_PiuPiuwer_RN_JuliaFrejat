@@ -105,10 +105,12 @@ const Piu: React.FC<PiuProps> = ({ piuData, isLiked, isFavorited }) => {
 
             <ContainerComponent>
                 <ContainerComponent>
-                    <Feather name='star' size={25} color={isFavorited ? '#F2BA5B' : '#6C757D'} fill={isFavorited ? '#F2BA5B' : 'none'} onPress={handleFavorite} />
+                    {/* <Feather name='star' size={25} color={isFavorited ? '#F2BA5B' : '#6C757D'} fill={isFavorited ? '#F2BA5B' : 'none'} onPress={handleFavorite} /> */}
+                    {isFavorited ? <StarColor onPress={handleFavorite} /> : <Star onPress={handleFavorite} />}
 
                     <ContainerComponent>
-                        <Feather name='heart' size={25} color={isLiked ? '#FF7F7F' : '#6C757D'} fill={isLiked ? '#FF7F7F' : 'none'} onPress={handleLike} />
+                        {/* <Feather name='heart' size={25} color={isLiked ? '#FF7F7F' : '#6C757D'} fill={isLiked ? '#FF7F7F' : 'none'} onPress={handleLike} /> */}
+                        {isFavorited ? <HeartColor onPress={handleFavorite} /> : <Heart onPress={handleFavorite} />}
                         <SmallText>{likeCounter}</SmallText>
                     </ContainerComponent>
                 </ContainerComponent>
