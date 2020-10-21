@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 
 interface ButtonProps extends TouchableOpacityProps {
     isGreen: boolean;
+    isNotActive?: boolean;
 }
 
 export const ButtonComponent = styled.TouchableOpacity<ButtonProps>`
@@ -14,4 +15,5 @@ export const ButtonComponent = styled.TouchableOpacity<ButtonProps>`
     border-radius: 10px;
     border: ${props => props.isGreen ? 'none' : '2px solid #52B788'};
     background-color: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
+    opacity: ${props => props.isNotActive ? '0.7' : '1'};
 `;

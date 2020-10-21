@@ -97,8 +97,8 @@ function NewPiuPage() {
                     <Feather name='map-pin' size={25} color='#6C757D' />
                 </ButtonsComponent>
 
-                <Button isGreen={true} onPress={handleSendPiu} isNotActive={error}>
-                    <ButtonTextComponent isGreen={true}>
+                <Button isGreen={true} isNotActive={error}>
+                    <ButtonTextComponent isGreen={true} onPress={handleSendPiu}>
                         PiuPiu
                     </ButtonTextComponent>
                 </Button>

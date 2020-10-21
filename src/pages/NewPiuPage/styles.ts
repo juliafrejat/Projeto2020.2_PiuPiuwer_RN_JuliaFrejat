@@ -87,7 +87,7 @@ export const TooLongErrorMsg = styled.Text<TooLongErrorMsgProps>`
     font-size: 12px;
     font-weight: bold;
     font-family: 'Courier New';
-    display: ${props => (props.limitReached && props.click) ? 'inline' : 'none'};
+    display: ${props => (props.limitReached && props.click) ? 'flex' : 'none'};
 `;
 
 interface EmptyErrorMsgProps {
@@ -100,5 +100,5 @@ export const EmptyErrorMsg = styled.Text<EmptyErrorMsgProps>`
     font-size: 12px;
     font-weight: bold;
     font-family: 'Courier New';
-    display: ${props => (props.isEmpty && props.click) ? 'inline' : 'none'};
+    display: ${props => (props.isEmpty && props.click) ? 'flex' : 'none'};
 `;

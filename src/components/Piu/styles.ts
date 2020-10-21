@@ -71,5 +71,5 @@ interface LoggedUserContainer {
 }
 
 export const LoggedUserContainer = styled.View`
-    display: ${props => props.show ? 'inline' : 'none'};
+    display: ${props => props.show ? 'flex' : 'none'};
 `;
