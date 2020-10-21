@@ -13,9 +13,9 @@ const Header: React.FC<HeaderProps> = (props) => {
     return (
         <HeaderComponent isGreen={props.isGreen}>
             <TitleComponent>
-                <View>
+                {/* <View>
                     <TitleImageComponent source={logoImg} />
-                </View>
+                </View> */}
                 <TitleTextComponent isGreen={props.isGreen}>PiuPiuwer</TitleTextComponent>
             </TitleComponent>
             {props.children}
