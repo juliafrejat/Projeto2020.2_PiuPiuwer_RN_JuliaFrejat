@@ -29,7 +29,6 @@ export const ProfileImageBoxComponent = styled.View`
 
 export const ProfileImageComponent = styled.Image`
     height: 50px;
-    object-fit: cover;
 `;
 
 export const TextareaComponent = styled.TextInput`

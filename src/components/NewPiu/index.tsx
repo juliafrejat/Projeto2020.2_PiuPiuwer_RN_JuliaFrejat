@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useAuth } from '../../hooks/useAuth';
+
 import { 
     NewPiuComponent, 
     ContainerComponent, 
@@ -13,11 +15,13 @@ interface NewPiuProps {
 }
 
 const NewPiu: React.FC<NewPiuProps> = (props) => {
+    const { loggedUserData } = useAuth();
+
     return (
         <NewPiuComponent>
             <ContainerComponent>
                 <ProfileImageBoxComponent>
-                    {/* <ProfileImageComponent source={} /> */}
+                    <ProfileImageComponent source={loggedUserData.foto} resizeMode="cover" />
                 </ProfileImageBoxComponent>
                 <TextareaComponent 
                     onFocus={props.onFocus} 
