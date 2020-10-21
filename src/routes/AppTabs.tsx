@@ -33,6 +33,9 @@ function AppTabs() {
                     },
                     inactiveBackgroundColor: '#52B788',
                     activeBackgroundColor: '#40916C',
+                    safeAreaInsets: {
+                        bottom: 0,
+                    },
                 }}
             >
                 <Screen 

@@ -25,6 +25,9 @@ import {
 
 import { Feather } from '@expo/vector-icons';
 
+interface TextareaComponent {
+    onChangeText(text: any): void;
+}
 
 function NewPiuPage() {
     const { navigate } = useNavigation();
@@ -76,7 +79,7 @@ function NewPiuPage() {
             <NewPiuComponent>
             <PiuContainerComponent>
                 <ProfileImageBoxComponent>
-                    {/* <ProfileImageComponent source={} /> */}
+                    {/* <ProfileImageComponent source={loggedUserData.foto} /> */}
                 </ProfileImageBoxComponent>
                 <TextareaComponent
                     multiline={true} 
@@ -97,7 +100,7 @@ function NewPiuPage() {
                     <Feather name='map-pin' size={25} color='#6C757D' />
                 </ButtonsComponent>
 
-                <Button isGreen={true} onPress={handleSendPiu}>
+                <Button isGreen={true} onPress={handleSendPiu} isNotActive={error}>
                     <ButtonTextComponent isGreen={true}>
                         PiuPiu
                     </ButtonTextComponent>
