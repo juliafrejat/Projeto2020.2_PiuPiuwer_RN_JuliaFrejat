@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { View } from 'react-native';
-import { HeaderComponent, TitleComponent, TitleImageComponent, TitleTextComponent } from './styles';
+import { HeaderComponent, TitleComponent, TitleTextComponent } from './styles';
 
-import logoImg from '../../assets/passaro.svg';
+import Logo from '../../assets/Logo'; 
 
 interface HeaderProps {
     isGreen: boolean;
@@ -13,9 +13,7 @@ const Header: React.FC<HeaderProps> = (props) => {
     return (
         <HeaderComponent isGreen={props.isGreen}>
             <TitleComponent>
-                {/* <View>
-                    <TitleImageComponent source={logoImg} />
-                </View> */}
+                <Logo height={30} width={30} />
                 <TitleTextComponent isGreen={props.isGreen}>PiuPiuwer</TitleTextComponent>
             </TitleComponent>
             {props.children}

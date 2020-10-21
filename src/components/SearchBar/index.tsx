@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 import { InputComponent, SearchButtonComponent, SearchComponent } from './styles';
 
 import { Feather } from '@expo/vector-icons';
-import logoImg from '../../assets/passaro.svg';
 
 interface SearchBarProps {
     isGreen: boolean;
