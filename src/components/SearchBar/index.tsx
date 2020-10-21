@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+
 import { InputComponent, SearchButtonComponent, SearchComponent } from './styles';
 
 import { Feather } from '@expo/vector-icons';

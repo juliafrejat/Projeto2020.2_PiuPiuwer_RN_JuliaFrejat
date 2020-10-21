@@ -1,7 +1,7 @@
 import React from 'react';
 
-import AuthRoutes from './auth';
-import AppTabs from './app';
+import AuthRoutes from './Auth';
+import AppTabs from './AppTabs';
 
 import { useAuth } from '../hooks/useAuth';
 

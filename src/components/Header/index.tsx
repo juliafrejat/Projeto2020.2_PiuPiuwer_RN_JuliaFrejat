@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { HeaderComponent, TitleComponent, TitleTextComponent } from './styles';
-import SearchBar from '../SearchBar/index'
 
 import logoImg from '../../assets/passaro.svg';
 
@@ -17,8 +16,7 @@ const Header: React.FC<HeaderProps> = (props) => {
                 <TitleTextComponent source={logoImg} />
                 <TitleTextComponent>PiuPiuwer</TitleTextComponent>
             </TitleComponent>
-        {props.children}
-            <SearchBar isGreen={props.isGreen} />
+            {props.children}
         </HeaderComponent>
     )
 }

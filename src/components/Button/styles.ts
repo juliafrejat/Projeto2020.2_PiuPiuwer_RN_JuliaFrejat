@@ -8,17 +8,11 @@ interface ButtonProps {
 export const ButtonComponent = styled(RectButton)<ButtonProps>`
     display: flex;
     align-items: center;
-    width: 20px;
-    padding: 5px 10px;
+    width: 100px;
+    padding: 10px 15px;
+    margin: 10px;
     text-align: center;
-    border-radius: 5px;
-    border: ${props => props.isGreen ? 'none' : '2px solid var(--color-primary)'};
-    background-color: ${props => props.isGreen ? 'var(--color-primary)' : '#FFFFFF'};
-
-    Text {
-        color: ${props => props.isGreen ? '#FFFFFF' : 'var(--color-primary)'};
-        font-family: 'Courier New';
-        font-size: 10px;
-        font-weight: bold;
-    }
+    border-radius: 10px;
+    border: ${props => props.isGreen ? 'none' : '2px solid #52B788'};
+    background-color: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
 `;

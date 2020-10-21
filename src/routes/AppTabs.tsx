@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Feather } from '@expo/vector-icons';
 
-import Feed from '../pages/Feed';
+import NewPiuStack from './NewPiuStack';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -37,7 +37,7 @@ function AppTabs() {
             >
                 <Screen 
                     name="Feed" 
-                    component={Feed}
+                    component={NewPiuStack}
                     options={{
                         tabBarLabel: '',
                         tabBarIcon: ({ color, size }) => {
@@ -50,7 +50,7 @@ function AppTabs() {
 
                 <Screen 
                     name="Messages" 
-                    component={Feed}
+                    component={NewPiuStack}
                     options={{
                         tabBarLabel: '',
                         tabBarIcon: ({ color, size }) => {
@@ -63,7 +63,7 @@ function AppTabs() {
 
                 <Screen 
                     name="Notifications" 
-                    component={Feed}
+                    component={NewPiuStack}
                     options={{
                         tabBarLabel: '',
                         tabBarIcon: ({ color, size }) => {
@@ -76,7 +76,7 @@ function AppTabs() {
 
                 <Screen 
                     name="Profile" 
-                    component={Feed}
+                    component={NewPiuStack}
                     options={{
                         tabBarLabel: '',
                         tabBarIcon: ({ color, size }) => {
@@ -89,12 +89,12 @@ function AppTabs() {
 
                 <Screen 
                     name="Logout" 
-                    component={Feed}
+                    component={NewPiuStack}
                     options={{
                         tabBarLabel: '',
                         tabBarIcon: ({ color, size }) => {
                             return (
-                                <Feather name="power" size={size} color='#FFFFFF' />
+                                <Feather name="log-out" size={size} color='#FFFFFF' />
                             )
                         }
                     }} 
