@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const NewPiuComponent = styled.View`
+export const PiuComponent = styled.View`
     width: 100%;
     background-color: #FFFFFF;
     padding: 15px;

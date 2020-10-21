@@ -24,12 +24,12 @@ export const ProfileImageBoxComponent = styled.View`
     height: 50px;
     background-color: #E9ECEF;
     border-radius: 25px;
-
+    align-items: center;
+    justify-content: center;
 `;
 
 export const ProfileImageComponent = styled.Image`
     height: 50px;
-    object-fit: cover;
 `;
 
 export const TextareaComponent = styled.TextInput`

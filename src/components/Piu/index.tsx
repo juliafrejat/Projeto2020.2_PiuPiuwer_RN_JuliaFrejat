@@ -4,7 +4,6 @@ import { PiuData, usePius } from '../../hooks/usePius';
 import { useAuth } from '../../hooks/useAuth';
 
 import { 
-    NewPiuComponent, 
     ContainerComponent, 
     ProfileImageBoxComponent, 
     ProfileImageComponent,
@@ -12,6 +11,8 @@ import {
     NameContainerComponent,
     NameText,
     LoggedUserContainer,
+    PiuComponent,
+    ContentText,
 } from './styles';
 
 import { Feather } from '@expo/vector-icons';
@@ -89,7 +90,7 @@ const Piu: React.FC<PiuProps> = ({ piuData, isLiked, isFavorited }) => {
     }, [deletePiu, piuData]);
 
     return (
-        <NewPiuComponent>
+        <PiuComponent>
             <ContainerComponent>
                 <ContainerComponent>
                     <ProfileImageBoxComponent>
@@ -103,6 +104,10 @@ const Piu: React.FC<PiuProps> = ({ piuData, isLiked, isFavorited }) => {
                 <SmallText>{relativeTime}</SmallText>
             </ContainerComponent>
 
+            <ContainerComponent>
+                <ContentText>{texto}</ContentText>
+            </ContainerComponent>
+            
             <ContainerComponent>
                 <ContainerComponent>
                     {/* <Feather name='star' size={25} color={isFavorited ? '#F2BA5B' : '#6C757D'} fill={isFavorited ? '#F2BA5B' : 'none'} onPress={handleFavorite} /> */}
@@ -119,7 +124,7 @@ const Piu: React.FC<PiuProps> = ({ piuData, isLiked, isFavorited }) => {
                     <Feather name='trash-2' size={25} color='#6C757D' onPress={handleDelete} />
                 </LoggedUserContainer>
             </ContainerComponent>
-        </NewPiuComponent>
+        </PiuComponent>
     )
 }
 

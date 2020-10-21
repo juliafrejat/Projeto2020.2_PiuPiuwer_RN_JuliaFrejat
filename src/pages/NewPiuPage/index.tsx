@@ -19,6 +19,7 @@ import {
     NewPiuComponent, 
     PiuContainerComponent, 
     ProfileImageBoxComponent, 
+    ProfileImageComponent, 
     TextareaComponent, 
     TooLongErrorMsg
 } from './styles';
@@ -76,7 +77,7 @@ function NewPiuPage() {
             <NewPiuComponent>
             <PiuContainerComponent>
                 <ProfileImageBoxComponent>
-                    {/* <ProfileImageComponent source={loggedUserData.foto} /> */}
+                    <ProfileImageComponent source={{uri: loggedUserData.foto}} resizeMode="cover"/>
                 </ProfileImageBoxComponent>
                 <TextareaComponent
                     multiline={true} 

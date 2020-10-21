@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image } from 'react-native';
 
 import { useAuth } from '../../hooks/useAuth';
 
@@ -21,7 +22,7 @@ const NewPiu: React.FC<NewPiuProps> = (props) => {
         <NewPiuComponent>
             <ContainerComponent>
                 <ProfileImageBoxComponent>
-                    <ProfileImageComponent source={loggedUserData.foto} resizeMode="cover" />
+                    <ProfileImageComponent source={{uri: loggedUserData.foto}} resizeMode="cover" />
                 </ProfileImageBoxComponent>
                 <TextareaComponent 
                     onFocus={props.onFocus} 
