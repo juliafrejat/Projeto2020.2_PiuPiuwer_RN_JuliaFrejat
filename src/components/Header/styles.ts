@@ -21,7 +21,7 @@ export const TitleComponent = styled.View`
 export const TitleTextComponent = styled.Text<HeaderProps>`
     font-size: 20px;
     font-weight: bold;
-    color: ${props => props.isGreen ? '#52B788' : '#FFFFFF'};
+    color: ${props => props.isGreen ? '#FFFFFF' : '#52B788'};
     font-family: 'Courier New';
 `;
 

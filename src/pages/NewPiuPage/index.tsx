@@ -25,9 +25,6 @@ import {
 
 import { Feather } from '@expo/vector-icons';
 
-interface TextareaComponent {
-    onChangeText(text: any): void;
-}
 
 function NewPiuPage() {
     const { navigate } = useNavigation();
@@ -69,7 +66,7 @@ function NewPiuPage() {
     }, [textoDePiu.length])
 
     return (
-        <Page color="#F8F9FA">
+        <Page color="#F8F9FA" alignment="flex-start">
             <Header isGreen={true}>
                 <TouchableOpacity onPress={handleClosePage}>
                     <Feather name='x' color='#FFFFFF' size={25} />

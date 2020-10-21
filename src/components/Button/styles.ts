@@ -8,7 +8,6 @@ interface ButtonProps {
 export const ButtonComponent = styled(RectButton)<ButtonProps>`
     display: flex;
     align-items: center;
-    width: 100px;
     padding: 10px 15px;
     margin: 10px 0px;
     text-align: center;
