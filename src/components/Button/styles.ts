@@ -1,11 +1,11 @@
+import { TouchableOpacityProps } from 'react-native';
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
 
-interface ButtonProps {
+interface ButtonProps extends TouchableOpacityProps {
     isGreen: boolean;
 }
 
-export const ButtonComponent = styled(RectButton)<ButtonProps>`
+export const ButtonComponent = styled.TouchableOpacity<ButtonProps>`
     display: flex;
     align-items: center;
     padding: 10px 15px;

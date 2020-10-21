@@ -1,4 +1,6 @@
 import React, {createContext, useCallback, useContext, useEffect, useState} from 'react';
+import { AsyncStorage } from 'react-native';
+
 import api from '../services/api';
 import { PiuData } from './usePius';
 
@@ -28,34 +30,35 @@ interface AuthContextData {
     errorTxt: string;
 }
 
-const AuthContext = createContext<AuthContextData>({} as AuthContextData);
+export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({children}) => {
     const [data, setData] = useState<AuthState>({} as AuthState);
     const [errorTxt, setErrorTxt] = useState<string>('');
 
     useEffect(() => {
-        const token = localStorage.getItem('@Project:token');
-        const user = localStorage.getItem('@Project:user');
+        const loadUserData = async () => {
+            const token = await AsyncStorage.getItem('@Project:token');
+            const user = await AsyncStorage.getItem('@Project:user');
 
-        if (user && token) {
-            api.defaults.headers.Authorization = `JWT ${token}`;
-            setData({ user: JSON.parse(user), token: token });
+            if (user && token) {
+                api.defaults.headers.Authorization = `JWT ${token}`;
+                setData({ user: JSON.parse(user), token: token });
+            }
         }
-
+        loadUserData();
     }, []);
     
     const logIn = useCallback(async ({username, password}) => {
         try {
             const response = await api.post('/login/', {username, password});
             const { token, user } = response.data;
-            localStorage.setItem('@Project:token', token);
-            localStorage.setItem('@Project:user', JSON.stringify(user));
+            await AsyncStorage.multiSet([['@Project:token', token],['@Project:user', JSON.stringify(user)]]);
 
             if (!!token) {
                 const userResponse = await api.get('/usuarios/?search='+ username);
                 const user = userResponse.data[0];
-                localStorage.setItem('@Project:user', JSON.stringify(user));
+                await AsyncStorage.setItem('@Project:user', JSON.stringify(user));
 
                 api.defaults.headers.Authorization = `JWT ${token}`;
                 setData({ token, user });
@@ -84,8 +87,8 @@ export const AuthProvider: React.FC = ({children}) => {
     }, []);
 
     const logOut = () => {
-        localStorage.removeItem('@Project:token');
-        localStorage.removeItem('@Project:user');
+        AsyncStorage.removeItem('@Project:token');
+        AsyncStorage.removeItem('@Project:user');
         setData({} as AuthState);
     }
 

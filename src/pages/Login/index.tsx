@@ -14,10 +14,10 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogIn = useCallback((e: any) => {
-        //logIn({username, password});
-        console.log('ok');
+    const handleLogIn = useCallback(() => {
+        logIn({username, password});
     }, [username, password, logIn]);
+
 
     return (
         <Page color="#FFFFFF">
@@ -34,8 +34,8 @@ function Login() {
                 <InputComponent placeholder="Nome de usuário" onChangeText={(text: string) => {setUsername(text)}} />
                 <InputComponent placeholder="Senha" onChangeText={(text: string) => {setPassword(text)}} />
                 <ErrorText>{errorTxt}</ErrorText>
-                <Button isGreen={true} onPress={handleLogIn}>
-                    <ButtonTextComponent>
+                <Button isGreen={true}>
+                    <ButtonTextComponent onPress={handleLogIn}>
                         Continuar
                     </ButtonTextComponent>
                 </Button>

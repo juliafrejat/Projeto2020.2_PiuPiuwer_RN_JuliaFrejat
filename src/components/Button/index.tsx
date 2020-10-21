@@ -1,11 +1,11 @@
 import React from 'react';
-import { BaseButtonProperties } from 'react-native-gesture-handler';
+import { TouchableOpacityProps } from 'react-native';
 
 import { ButtonComponent } from './styles';
 
 
 
-interface ButtonProps extends BaseButtonProperties {
+interface ButtonProps extends TouchableOpacityProps {
     isGreen: boolean;
     isNotActive?: boolean;
 }
