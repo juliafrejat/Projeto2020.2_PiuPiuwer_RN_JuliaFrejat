@@ -23,10 +23,6 @@ interface PiuProps {
     isFavorited: boolean;
 }
 
-interface LoggedUserContainer {
-    show: boolean;
-}
-
 const Piu: React.FC<PiuProps> = ({ piuData, isLiked, isFavorited }) => {
     const { favoritePiu, likePiu, deletePiu } = usePius();
     const { loggedUserData } = useAuth();

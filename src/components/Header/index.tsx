@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { HeaderComponent, TitleComponent, TitleTextComponent } from './styles';
+import { HeaderComponent, TitleComponent, TitleImageComponent, TitleTextComponent } from './styles';
 
 import logoImg from '../../assets/passaro.svg';
 
@@ -13,8 +13,8 @@ const Header: React.FC<HeaderProps> = (props) => {
     return (
         <HeaderComponent isGreen={props.isGreen}>
             <TitleComponent>
-                <TitleTextComponent source={logoImg} />
-                <TitleTextComponent>PiuPiuwer</TitleTextComponent>
+                <TitleImageComponent source={logoImg} />
+                <TitleTextComponent isGreen={props.isGreen}>PiuPiuwer</TitleTextComponent>
             </TitleComponent>
             {props.children}
         </HeaderComponent>

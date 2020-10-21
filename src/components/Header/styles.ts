@@ -18,7 +18,11 @@ export const TitleComponent = styled.View`
     flex-direction: row;
 `;
 
-export const TitleTextComponent = styled.Text<HeaderProps>`
+interface TitleTextComponentProps {
+    isGreen: boolean;
+}
+
+export const TitleTextComponent = styled.Text<TitleTextComponentProps>`
     font-size: 20px;
     font-weight: bold;
     color: ${props => props.isGreen ? '#FFFFFF' : '#52B788'};
