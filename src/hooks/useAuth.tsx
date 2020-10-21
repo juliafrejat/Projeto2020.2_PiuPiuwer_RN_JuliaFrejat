@@ -1,5 +1,7 @@
 import React, {createContext, useCallback, useContext, useEffect, useState} from 'react';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+
+import * as Yup from 'yup';
 
 import api from '../services/api';
 import { PiuData } from './usePius';
@@ -25,8 +27,8 @@ interface AuthState {
 interface AuthContextData {
     loggedUserData: User;
     token: string;
-    logIn(user: object): object;
-    logOut(): void;
+    logIn(user: object): Promise<void>;
+    logOut(): Promise<void>;
     errorTxt: string;
 }
 
@@ -51,46 +53,61 @@ export const AuthProvider: React.FC = ({children}) => {
     
     const logIn = useCallback(async ({username, password}) => {
         try {
-            const response = await api.post('/login/', {username, password});
-            const { token, user } = response.data;
-            console.log(token)
-            await AsyncStorage.multiSet([['@Project:token', token],['@Project:user', JSON.stringify(user)]]);
+            const esquema = Yup.object().shape({
+                username: Yup.string().required('Nome de usuário obrigatório.'),
+                password: Yup.string().required('Senha obrigatória.'),
+            });
+            await esquema.validate({username, password}, { abortEarly: false });
 
-            if (!!token) {
-                console.log('no error');
-                const userResponse = await api.get('/usuarios/?search='+ username);
-                const user = userResponse.data[0];
-                await AsyncStorage.setItem('@Project:user', JSON.stringify(user));
-
-                api.defaults.headers.Authorization = `JWT ${token}`;
-                setData({ token, user });
-
-                setErrorTxt('');
+            try {
+                const response = await api.post('/login/', {username, password});
+                const { token } = response.data;
+    
+                if (!!token) {
+                    const userResponse = await api.get('/usuarios/?search='+ username);
+                    const user = userResponse.data[0];
+                    await AsyncStorage.multiSet([['@Project:token', token],['@Project:user', JSON.stringify(user)]]);
+    
+                    api.defaults.headers.Authorization = `JWT ${token}`;
+                    setData({ token, user });
+    
+                    setErrorTxt('');
+                }
+            } catch (error) {
+                console.log(error);
+                const response = error.response.data;
+    
+                if (response.global) {
+                    setErrorTxt('Usuário e/ou senha incorretos');
+                }
+    
+                if (response.username) {
+                    setErrorTxt('Usuário não pode ser em branco.');
+                }
+    
+                if (response.password) {
+                    setErrorTxt('Senha não pode ser em branco.');
+                }
+    
+                if (response.password && response.username) {
+                    setErrorTxt('Usuário e senha não podem ser em branco.');
+                }
             }
-        } catch (error) {
-            const response = error.response.data;
-
-            if (response.global) {
-                setErrorTxt('Usuário e/ou senha incorretos');
-            }
-
-            if (response.username) {
-                setErrorTxt('Usuário não pode ser em branco.');
-            }
-
-            if (response.password) {
-                setErrorTxt('Senha não pode ser em branco.');
-            }
-
-            if (response.password && response.username) {
-                setErrorTxt('Usuário e senha não podem ser em branco.');
+            
+        } catch (err) {
+            if (err instanceof Yup.ValidationError) {
+                console.log(err);
+                setErrorTxt(err.inner[0].message);
             }
         }
+
+
+        
     }, []);
 
-    const logOut = () => {
-        AsyncStorage.removeItem('@Project:token');
-        AsyncStorage.removeItem('@Project:user');
+    const logOut = async () => {
+        await AsyncStorage.removeItem('@Project:token');
+        await AsyncStorage.removeItem('@Project:user');
         setData({} as AuthState);
     }
 
