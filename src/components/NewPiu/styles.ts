@@ -24,6 +24,7 @@ export const ProfileImageBoxComponent = styled.View`
     height: 50px;
     background-color: #E9ECEF;
     border-radius: 25px;
+    overflow: hidden;
 
 `;
 

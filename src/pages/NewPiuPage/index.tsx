@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import usePius from '../../hooks/usePius';
 import useAuth from '../../hooks/useAuth';
@@ -39,8 +39,8 @@ function NewPiuPage() {
 
     const [textoDePiu, setTextoDePiu] = useState('');
 
-    const handleTextPiuChange = useCallback((e) => {
-        setTextoDePiu(e.target.value);
+    const handleTextPiuChange = useCallback((text) => {
+        setTextoDePiu(text);
     }, [setTextoDePiu]);
 
     const handleSendPiu = useCallback(async () => {
@@ -77,13 +77,13 @@ function NewPiuPage() {
             <NewPiuComponent>
             <PiuContainerComponent>
                 <ProfileImageBoxComponent>
-                    <ProfileImageComponent source={{uri: loggedUserData.foto}} resizeMode="cover"/>
+                    <ProfileImageComponent source={{uri: loggedUserData.foto}} />
                 </ProfileImageBoxComponent>
                 <TextareaComponent
                     multiline={true} 
                     numberOfLines={10}
                     placeholder="Digite seu novo piu."
-                    onChangeText={(text: string) => setTextoDePiu(text)} 
+                    onChangeText={(text: string) => handleTextPiuChange(text)} 
                 />
             </PiuContainerComponent>
 

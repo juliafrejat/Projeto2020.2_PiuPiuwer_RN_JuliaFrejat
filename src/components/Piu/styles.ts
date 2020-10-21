@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const PiuComponent = styled.View`
     width: 100%;
     background-color: #FFFFFF;
-    padding: 15px;
+    padding: 5px;
     margin-bottom: 25px;
     box-shadow: 0 5px 5px rgba(0,0,0,0.15);
     border-radius: 15px;
@@ -11,12 +11,27 @@ export const PiuComponent = styled.View`
     justify-content: space-between;
 `;
 
-export const ContainerComponent = styled.View`
+interface FullWidthContainerComponent {
+    alignment: string;
+}
+
+export const FullWidthContainerComponent = styled.View`
     flex-direction: row;
     width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: ${props => props.alignment};
+`;
+
+interface ContainerComponent {
+    alignment: string;
+}
+
+export const ContainerComponent = styled.View`
+    flex-direction: row;
     padding: 10px 0px;
     justify-content: space-between;
-    align-items: center;
+    align-items: ${props => props.alignment};
 `;
 
 export const ProfileImageBoxComponent = styled.View`
@@ -24,12 +39,12 @@ export const ProfileImageBoxComponent = styled.View`
     height: 50px;
     background-color: #E9ECEF;
     border-radius: 25px;
+    overflow: hidden;
 
 `;
 
 export const ProfileImageComponent = styled.Image`
     height: 50px;
-    object-fit: cover;
 `;
 
 export const TextareaComponent = styled.TextInput`
@@ -41,27 +56,33 @@ export const TextareaComponent = styled.TextInput`
     padding: 10px 20px;
 `;
 
+interface SmallText {
+    show: boolean;
+}
+
 export const SmallText = styled.Text`
     font-family: 'Courier New';
     font-size: 12px;
-    color: #CED4DA;
+    color: #495057;
+    display: ${props => props.show ? 'flex' : 'none'};
 `;
 
 export const NameText = styled.Text`
     font-family: 'Courier New';
     font-size: 14px;
-    color: #CED4DA;
+    color: #495057;
     font-weight: bold;
+    margin-bottom: 4px;
 `;
 
 export const ContentText = styled.Text`
     font-family: 'Courier New';
     font-size: 14px;
-    color: #CED4DA;
+    color: #495057;
 `;
 
 export const NameContainerComponent = styled.View`
-    margin: 10px;
+    margin: 0px 10px;
     align-items: flex-start;
     justify-content: space-between;
 `;
@@ -72,4 +93,11 @@ interface LoggedUserContainer {
 
 export const LoggedUserContainer = styled.View`
     display: ${props => props.show ? 'flex' : 'none'};
+`;
+
+export const InteractionContainerComponent = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
 `;

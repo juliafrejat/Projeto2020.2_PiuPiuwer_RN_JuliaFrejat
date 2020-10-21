@@ -26,6 +26,7 @@ export const ProfileImageBoxComponent = styled.View`
     border-radius: 25px;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 `;
 
 export const ProfileImageComponent = styled.Image`

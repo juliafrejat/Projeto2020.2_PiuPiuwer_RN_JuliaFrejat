@@ -25,7 +25,7 @@ function Feed() {
                 <SearchBar isGreen={true} />
             </Header>
             <NewPiu onFocus={handleNavigateToNewPiuPage} />
-            <ScrollArea showsVerticalScrollIndicator={false}>
+            <ScrollArea showsVerticalScrollIndicator={false} alwaysBounceHorizontal={false} showsHorizontalScrollIndicator={false}>
                 <PiusArea />
             </ScrollArea>
         </Page>

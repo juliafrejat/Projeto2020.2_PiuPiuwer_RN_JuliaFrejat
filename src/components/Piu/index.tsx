@@ -13,6 +13,8 @@ import {
     LoggedUserContainer,
     PiuComponent,
     ContentText,
+    FullWidthContainerComponent,
+    InteractionContainerComponent,
 } from './styles';
 
 import { Feather } from '@expo/vector-icons';
@@ -91,39 +93,41 @@ const Piu: React.FC<PiuProps> = ({ piuData, isLiked, isFavorited }) => {
 
     return (
         <PiuComponent>
-            <ContainerComponent>
-                <ContainerComponent>
+            <FullWidthContainerComponent alignment="flex-start">
+                <ContainerComponent alignment="center">
                     <ProfileImageBoxComponent>
-                        <ProfileImageComponent source={foto} />
+                        <ProfileImageComponent source={{uri: foto}} />
                     </ProfileImageBoxComponent>
                     <NameContainerComponent>
                         <NameText>{first_name+' '+last_name}</NameText>
-                        <SmallText>{'@'+username}</SmallText>
+                        <SmallText show={true}>{'@'+username}</SmallText>
                     </NameContainerComponent>
                 </ContainerComponent>
-                <SmallText>{relativeTime}</SmallText>
-            </ContainerComponent>
-
-            <ContainerComponent>
-                <ContentText>{texto}</ContentText>
-            </ContainerComponent>
-            
-            <ContainerComponent>
-                <ContainerComponent>
-                    {/* <Feather name='star' size={25} color={isFavorited ? '#F2BA5B' : '#6C757D'} fill={isFavorited ? '#F2BA5B' : 'none'} onPress={handleFavorite} /> */}
-                    {isFavorited ? <StarColor onPress={handleFavorite} /> : <Star onPress={handleFavorite} />}
-
-                    <ContainerComponent>
-                        {/* <Feather name='heart' size={25} color={isLiked ? '#FF7F7F' : '#6C757D'} fill={isLiked ? '#FF7F7F' : 'none'} onPress={handleLike} /> */}
-                        {isFavorited ? <HeartColor onPress={handleFavorite} /> : <Heart onPress={handleFavorite} />}
-                        <SmallText>{likeCounter}</SmallText>
-                    </ContainerComponent>
+                <ContainerComponent alignment="center">
+                    <SmallText show={true}>{relativeTime}</SmallText>
                 </ContainerComponent>
+            </FullWidthContainerComponent>
 
-                <LoggedUserContainer show={piuData.usuario.username === loggedUserData.username}>
-                    <Feather name='trash-2' size={25} color='#6C757D' onPress={handleDelete} />
-                </LoggedUserContainer>
-            </ContainerComponent>
+            <FullWidthContainerComponent alignment="center">
+                <ContentText>{texto}</ContentText>
+            </FullWidthContainerComponent>
+            
+            <FullWidthContainerComponent alignment="center">
+                    <InteractionContainerComponent>
+                        <Feather name='star' size={25} color={isFavorited ? '#F2BA5B' : '#6C757D'} fill={isFavorited ? '#F2BA5B' : 'none'} onPress={handleFavorite} />
+                        {/* {isFavorited ? <StarColor onPress={handleFavorite} /> : <Star onPress={handleFavorite} />} */}
+
+                        <ContainerComponent alignment="flex-end">
+                            <Feather name='heart' size={25} color={isLiked ? '#FF7F7F' : '#6C757D'} fill={isLiked ? '#FF7F7F' : 'none'} onPress={handleLike} />
+                            {/* {isFavorited ? <HeartColor onPress={handleFavorite} /> : <Heart onPress={handleFavorite} />} */}
+                            <SmallText show={likeCounter!==0} >{likeCounter}</SmallText>
+                        </ContainerComponent>
+                    </InteractionContainerComponent>
+
+                    <LoggedUserContainer show={piuData.usuario.username === loggedUserData.username}>
+                        <Feather name='trash-2' size={25} color='#6C757D' onPress={handleDelete} />
+                    </LoggedUserContainer>
+            </FullWidthContainerComponent>
         </PiuComponent>
     )
 }
