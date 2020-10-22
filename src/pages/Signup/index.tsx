@@ -13,17 +13,22 @@ import { ButtonTextComponent, Form } from './styles';
 import { Keyboard } from 'react-native';
 
 function Singup() {
-    const { logIn, errorTxt } = useAuth();
+    const { signUp, errorTxt } = useAuth();
     const { setIsLoading } = useLoading();
 
     const [username, setUsername] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [bio, setBio] = useState('');
+    const [photo, setPhoto] = useState('');
 
-    const handleLogIn = useCallback(async () => {
+    const handleSignUp = useCallback(async () => {
         setIsLoading(true);
-        await logIn({username, password});
+        signUp({username, firstName, lastName, email, password, bio, photo});
         setIsLoading(false);
-    }, [username, password, logIn, setIsLoading]);
+    }, [username, password, signUp, setIsLoading]);
 
     const { navigate } = useNavigation();
 
@@ -53,19 +58,19 @@ function Singup() {
                 <InputComponent 
                     placeholder="Nome" 
                     onChangeText={
-                        (text: string) => {setUsername(text)}
+                        (text: string) => {setFirstName(text)}
                     } 
                 />
                 <InputComponent 
                     placeholder="Sobrenome" 
                     onChangeText={
-                        (text: string) => {setUsername(text)}
+                        (text: string) => {setLastName(text)}
                     } 
                 />
                 <InputComponent 
                     placeholder="E-mail" 
                     onChangeText={
-                        (text: string) => {setUsername(text)}
+                        (text: string) => {setEmail(text)}
                     } 
                 />
                 <InputComponent 
@@ -78,18 +83,18 @@ function Singup() {
                 <InputComponent 
                     placeholder="Sobre" 
                     onChangeText={
-                        (text: string) => {setUsername(text)}
+                        (text: string) => {setBio(text)}
                     } 
                 />
                 <InputComponent 
                     placeholder="Foto de perfil" 
                     onChangeText={
-                        (text: string) => {setUsername(text)}
+                        (text: string) => {setPhoto(text)}
                     } 
                 />
                 <ErrorText>{errorTxt}</ErrorText>
                 <Button isGreen={true}>
-                    <ButtonTextComponent onPress={handleLogIn}>
+                    <ButtonTextComponent onPress={handleSignUp}>
                         Continuar
                     </ButtonTextComponent>
                 </Button>

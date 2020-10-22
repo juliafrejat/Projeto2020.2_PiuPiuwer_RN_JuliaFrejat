@@ -29,6 +29,7 @@ interface AuthContextData {
     token: string;
     logIn(user: object): Promise<void>;
     logOut(): Promise<void>;
+    signUp(user: object): Promise<void>;
     errorTxt: string;
 }
 
@@ -109,10 +110,31 @@ export const AuthProvider: React.FC = ({children}) => {
         await AsyncStorage.removeItem('@Project:token');
         await AsyncStorage.removeItem('@Project:user');
         setData({} as AuthState);
-    }
+    };
+
+    const signUp = useCallback(async ({username, firstName, lastName, email, password, bio, photo}) => {
+        try {
+            const esquema = Yup.object().shape({
+                username: Yup.string().required('Nome de usuário obrigatório.'),
+                firstName: Yup.string().required('Nome obrigatório.'),
+                lastName: Yup.string().required('Sobrenome obrigatório.'),
+                email: Yup.string().required('E-mail obrigatório.'),
+                password: Yup.string().required('Senha obrigatória.'),
+                bio: Yup.string().required('Sobre obrigatório.'),
+                photo: Yup.string().required('Foto obrigatória.'),
+            });
+            await esquema.validate({username, firstName, lastName, email, password, bio, photo}, { abortEarly: false });
+   
+        } catch (err) {
+            if (err instanceof Yup.ValidationError) {
+                console.log(err);
+                setErrorTxt(err.inner[0].message);
+            }
+        };
+    }, []);
 
     return (
-        <AuthContext.Provider value={{token: data.token, loggedUserData: data.user, logIn, logOut, errorTxt}}>
+        <AuthContext.Provider value={{token: data.token, loggedUserData: data.user, logIn, logOut, signUp, errorTxt}}>
             {children}
         </AuthContext.Provider>
     )
