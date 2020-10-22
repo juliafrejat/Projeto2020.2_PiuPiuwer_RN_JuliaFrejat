@@ -22,7 +22,7 @@ const NewPiu: React.FC<NewPiuProps> = (props) => {
         <NewPiuComponent>
             <ContainerComponent>
                 <ProfileImageBoxComponent>
-                    <ProfileImageComponent source={{uri: loggedUserData.foto}} resizeMode="cover" />
+                    <ProfileImageComponent source={{uri: loggedUserData.foto}} />
                 </ProfileImageBoxComponent>
                 <TextareaComponent 
                     onFocus={props.onFocus} 
