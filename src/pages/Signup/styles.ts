@@ -37,3 +37,15 @@ export const ErrorText = styled.Text`
     font-weight: bold;
     color: #FF7F7F;
 `;
+
+interface SignupText {
+    show: boolean;
+}
+
+export const SignupText = styled.Text`
+    font-size: 12px;
+    font-family: 'Courier New';
+    font-weight: bold;
+    color: #343A40;
+    display: ${props => props.show ? 'flex' : 'none'};
+`;

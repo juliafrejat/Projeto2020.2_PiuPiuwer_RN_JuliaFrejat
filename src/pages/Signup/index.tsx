@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Page from '../../components/Page';
-import { ErrorText, FormTitle, InputComponent } from './styles';
+import { ErrorText, FormTitle, InputComponent, SignupText } from './styles';
 import { ButtonTextComponent, Form } from './styles';
 import { Keyboard } from 'react-native';
 
@@ -26,9 +26,12 @@ function Singup() {
     const [bio, setBio] = useState('');
     const [photo, setPhoto] = useState('');
 
+    const [success, setSuccess] = useState(false);
+
     const handleSignUp = useCallback(async () => {
         setIsLoading(true);
         signUp({username, firstName, lastName, email, password, bio, photo});
+        setSuccess(true);
         setIsLoading(false);
     }, [username, password, signUp, setIsLoading]);
 
@@ -79,6 +82,7 @@ function Singup() {
                     onChangeText={(text: string) => {setPhoto(text)}} 
                 />
                 <ErrorText>{errorTxt}</ErrorText>
+                <SignupText show={success && !errorTxt}>Cadastro realizado com sucesso.</SignupText>
                 <Button isGreen={true}>
                     <ButtonTextComponent onPress={handleSignUp}>
                         Continuar
