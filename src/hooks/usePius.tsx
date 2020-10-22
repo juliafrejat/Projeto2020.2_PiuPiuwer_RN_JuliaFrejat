@@ -43,19 +43,23 @@ export const PiusProvider: React.FC = ({children}) => {
     }, [setPius, pius])
 
     const likedPiusIds = useMemo(() => {
-        const likedPius = pius.filter(piu => {
-            const usuariosQueDeramLike = piu.likers.map(user => user.id)
-            return usuariosQueDeramLike.includes(loggedUserData.id);
-        })
-        return likedPius.map(piu => piu.id);
+        if (loggedUserData) {
+            const likedPius = pius.filter(piu => {
+                const usuariosQueDeramLike = piu.likers.map(user => user.id)
+                return usuariosQueDeramLike.includes(loggedUserData.id);
+            })
+            return likedPius.map(piu => piu.id);
+        }
     }, [pius, loggedUserData])
 
     const favoritedPiusIds = useMemo(() => {
-        const favoritedPius = pius.filter(piu => {
-            const usuariosQueFavoritaram = piu.favoritado_por.map(user => user.id)
-            return usuariosQueFavoritaram.includes(loggedUserData.id);
-        })
-        return favoritedPius.map(piu => piu.id);
+        if (loggedUserData) {
+            const favoritedPius = pius.filter(piu => {
+                const usuariosQueFavoritaram = piu.favoritado_por.map(user => user.id)
+                return usuariosQueFavoritaram.includes(loggedUserData.id);
+            })
+            return favoritedPius.map(piu => piu.id);
+        }
     }, [pius, loggedUserData])
 
     const likePiu = useCallback(async (piuId: number) => {
