@@ -47,15 +47,11 @@ function Login() {
                 <FormTitle>Entrar</FormTitle>
                 <InputComponent 
                     placeholder="Nome de usuário" 
-                    onChangeText={
-                        (text: string) => {setUsername(text)}
-                    } 
+                    onChangeText={(text: string) => {setUsername(text)}} 
                 />
                 <InputComponent 
                     placeholder="Senha" 
-                    onChangeText={
-                        (text: string) => {setPassword(text)}
-                    } 
+                    onChangeText={(text: string) => {setPassword(text)}} 
                     secureTextEntry
                 />
                 <ErrorText>{errorTxt}</ErrorText>
