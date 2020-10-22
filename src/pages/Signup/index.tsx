@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Page from '../../components/Page';
-import { ClickableText, ErrorText, FormTitle, InputComponent } from './styles';
+import { ErrorText, FormTitle, InputComponent } from './styles';
 import { ButtonTextComponent, Form } from './styles';
 import { Keyboard } from 'react-native';
 
