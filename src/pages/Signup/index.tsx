@@ -51,11 +51,41 @@ function Singup() {
                     } 
                 />
                 <InputComponent 
+                    placeholder="Nome" 
+                    onChangeText={
+                        (text: string) => {setUsername(text)}
+                    } 
+                />
+                <InputComponent 
+                    placeholder="Sobrenome" 
+                    onChangeText={
+                        (text: string) => {setUsername(text)}
+                    } 
+                />
+                <InputComponent 
+                    placeholder="E-mail" 
+                    onChangeText={
+                        (text: string) => {setUsername(text)}
+                    } 
+                />
+                <InputComponent 
                     placeholder="Senha" 
                     onChangeText={
                         (text: string) => {setPassword(text)}
                     } 
                     secureTextEntry
+                />
+                <InputComponent 
+                    placeholder="Sobre" 
+                    onChangeText={
+                        (text: string) => {setUsername(text)}
+                    } 
+                />
+                <InputComponent 
+                    placeholder="Foto de perfil" 
+                    onChangeText={
+                        (text: string) => {setUsername(text)}
+                    } 
                 />
                 <ErrorText>{errorTxt}</ErrorText>
                 <Button isGreen={true}>
@@ -63,7 +93,6 @@ function Singup() {
                         Continuar
                     </ButtonTextComponent>
                 </Button>
-                <ClickableText>Esqueceu a senha?</ClickableText>
             </Form>
         </Page>
     )

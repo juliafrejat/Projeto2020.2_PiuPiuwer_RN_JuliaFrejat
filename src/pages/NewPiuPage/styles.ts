@@ -33,6 +33,10 @@ export const ProfileImageComponent = styled.Image`
     height: 50px;
 `;
 
+interface TextareaComponent {
+    error: boolean;
+}
+
 export const TextareaComponent = styled.TextInput`
     background-color: #E9ECEF;
     font-family: 'Courier New';
@@ -40,6 +44,7 @@ export const TextareaComponent = styled.TextInput`
     height: 150px;
     border-radius: 15px;
     padding: 10px 20px;
+    opacity: ${props => props.error ? '0.5' : '1'};
 `;
 
 export const ContainerComponent = styled.View`

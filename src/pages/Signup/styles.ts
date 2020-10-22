@@ -20,7 +20,7 @@ export const InputComponent = styled.TextInput`
 export const Form = styled.View`
     justify-content: space-between;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 40px;
 `;
 
 export const FormTitle = styled.Text`
@@ -29,13 +29,6 @@ export const FormTitle = styled.Text`
     font-weight: bold;
     color: #343A40;
     margin-bottom: 20px;
-`;
-
-export const ClickableText = styled.Text`
-    font-size: 12px;
-    font-family: 'Courier New';
-    color: #40916C;
-    margin-top: 10px;
 `;
 
 export const ErrorText = styled.Text`

@@ -84,6 +84,7 @@ function NewPiuPage() {
                     numberOfLines={10}
                     placeholder="Digite seu novo piu."
                     onChangeText={(text: string) => {handleTextPiuChange(text)}} 
+                    error={error}
                 />
             </PiuContainerComponent>
 
