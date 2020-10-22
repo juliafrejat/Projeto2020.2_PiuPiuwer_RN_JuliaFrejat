@@ -75,7 +75,6 @@ export const AuthProvider: React.FC = ({children}) => {
                     setErrorTxt('');
                 }
             } catch (error) {
-                console.log(error);
                 const response = error.response.data;
     
                 if (response.global) {
@@ -97,7 +96,6 @@ export const AuthProvider: React.FC = ({children}) => {
             
         } catch (err) {
             if (err instanceof Yup.ValidationError) {
-                console.log(err);
                 setErrorTxt(err.inner[0].message);
             }
         }
@@ -118,7 +116,7 @@ export const AuthProvider: React.FC = ({children}) => {
                 username: Yup.string().required('Nome de usuário obrigatório.'),
                 firstName: Yup.string().required('Nome obrigatório.'),
                 lastName: Yup.string().required('Sobrenome obrigatório.'),
-                email: Yup.string().required('E-mail obrigatório.'),
+                email: Yup.string().required('E-mail obrigatório.').email('E-mail inválido.'),
                 password: Yup.string().required('Senha obrigatória.'),
                 bio: Yup.string().required('Sobre obrigatório.'),
                 photo: Yup.string().required('Foto obrigatória.'),
@@ -127,7 +125,6 @@ export const AuthProvider: React.FC = ({children}) => {
    
         } catch (err) {
             if (err instanceof Yup.ValidationError) {
-                console.log(err);
                 setErrorTxt(err.inner[0].message);
             }
         };
