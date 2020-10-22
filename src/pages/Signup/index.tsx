@@ -12,8 +12,7 @@ import { ClickableText, ErrorText, FormTitle, InputComponent } from './styles';
 import { ButtonTextComponent, Form } from './styles';
 import { Keyboard } from 'react-native';
 
-
-function Login() {
+function Singup() {
     const { logIn, errorTxt } = useAuth();
     const { setIsLoading } = useLoading();
 
@@ -28,23 +27,23 @@ function Login() {
 
     const { navigate } = useNavigation();
 
-    function handleNavigateToSignupPage() {
+    function handleNavigateToLoginPage() {
         Keyboard.dismiss();
-        navigate('Signup');
+        navigate('Login');
     }
 
     return (
         <Page color="#FFFFFF">
             <Header isGreen={false}>
                 <Button isGreen={true}>
-                    <ButtonTextComponent onPress={handleNavigateToSignupPage}>
-                        Cadastre-se
+                    <ButtonTextComponent onPress={handleNavigateToLoginPage}>
+                        Entrar
                     </ButtonTextComponent>
                 </Button>
             </Header>
 
             <Form>
-                <FormTitle>Entrar</FormTitle>
+                <FormTitle>Cadastre-se</FormTitle>
                 <InputComponent 
                     placeholder="Nome de usuário" 
                     onChangeText={
@@ -70,4 +69,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Singup;
