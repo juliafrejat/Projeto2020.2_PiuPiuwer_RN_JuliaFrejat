@@ -13,8 +13,8 @@ export interface PiuData {
 
 interface PiusContextData {
     pius: Array<PiuData>;
-    likedPiusIds: Array<number>;
-    favoritedPiusIds: Array<number>;
+    likedPiusIds: any;
+    favoritedPiusIds: any;
     piusRequest(): Promise<void>;
     sendPiu(idUsuarioLogado: number, textoPiu: string): Promise<void>;
     favoritePiu(piuId: number): Promise<void>;
