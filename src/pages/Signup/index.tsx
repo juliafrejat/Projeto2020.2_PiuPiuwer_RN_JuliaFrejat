@@ -16,6 +16,8 @@ function Singup() {
     const { signUp, errorTxt } = useAuth();
     const { setIsLoading } = useLoading();
 
+    const { navigate } = useNavigation();
+
     const [username, setUsername] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -29,8 +31,6 @@ function Singup() {
         signUp({username, firstName, lastName, email, password, bio, photo});
         setIsLoading(false);
     }, [username, password, signUp, setIsLoading]);
-
-    const { navigate } = useNavigation();
 
     function handleNavigateToLoginPage() {
         Keyboard.dismiss();
@@ -51,46 +51,32 @@ function Singup() {
                 <FormTitle>Cadastre-se</FormTitle>
                 <InputComponent 
                     placeholder="Nome de usuário" 
-                    onChangeText={
-                        (text: string) => {setUsername(text)}
-                    } 
+                    onChangeText={(text: string) => {setUsername(text)}} 
                 />
                 <InputComponent 
                     placeholder="Nome" 
-                    onChangeText={
-                        (text: string) => {setFirstName(text)}
-                    } 
+                    onChangeText={(text: string) => {setFirstName(text)}} 
                 />
                 <InputComponent 
                     placeholder="Sobrenome" 
-                    onChangeText={
-                        (text: string) => {setLastName(text)}
-                    } 
+                    onChangeText={(text: string) => {setLastName(text)}} 
                 />
                 <InputComponent 
                     placeholder="E-mail" 
-                    onChangeText={
-                        (text: string) => {setEmail(text)}
-                    } 
+                    onChangeText={(text: string) => {setEmail(text)}} 
                 />
                 <InputComponent 
                     placeholder="Senha" 
-                    onChangeText={
-                        (text: string) => {setPassword(text)}
-                    } 
+                    onChangeText={(text: string) => {setPassword(text)}} 
                     secureTextEntry
                 />
                 <InputComponent 
                     placeholder="Sobre" 
-                    onChangeText={
-                        (text: string) => {setBio(text)}
-                    } 
+                    onChangeText={(text: string) => {setBio(text)}} 
                 />
                 <InputComponent 
                     placeholder="Foto de perfil" 
-                    onChangeText={
-                        (text: string) => {setPhoto(text)}
-                    } 
+                    onChangeText={(text: string) => {setPhoto(text)}} 
                 />
                 <ErrorText>{errorTxt}</ErrorText>
                 <Button isGreen={true}>
